@@ -1,15 +1,16 @@
 package model;
 
-public class MainController {
+
+public class MainController{
 	
 	private MainView mainView;
 	
 	public MainController(){
-		mainView = new MainView("Unwritten tale");
+		mainView = new MainView();
 	}
 	
 	public MainView getMainView(){
 		return mainView;
 	}
-	
+
 }
