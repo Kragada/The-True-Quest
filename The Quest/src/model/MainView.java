@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
@@ -39,6 +40,7 @@ public class MainView {
 		map.setPreferredSize(new Dimension((frame.getWidth()/4)*3, frame.getHeight()));
 		map.setBorder(BorderFactory.createLoweredBevelBorder());
 		map.setVisible(true);
+		map.setLayout(new GridLayout(25,25));
 		
 		frame.add(map);
 		frame.add(stats);
@@ -49,8 +51,13 @@ public class MainView {
 		
 	}
 	
-	public void updateMap(){
-		
+	public void updateMap(JButton[][] button){
+		for(int i = 0; i<25; i++){
+			for(int j=0; j<25; j++){
+				map.add(button[i][j]);
+				System.out.println(button[i][j].getText() + "Sista");
+			}
+		}
 	}
 	
 	public JFrame getFrame(){
