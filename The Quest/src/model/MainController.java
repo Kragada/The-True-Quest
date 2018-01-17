@@ -12,5 +12,9 @@ public class MainController{
 	public MainView getMainView(){
 		return mainView;
 	}
+	
+	public void createMap(String areaName){
+		
+	}
 
 }
