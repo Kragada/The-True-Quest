@@ -7,9 +7,11 @@ import javax.swing.JButton;
 public class MainController{
 
 	private MainView mainView;
-	private JButton[][] button; 
+	private JButton[][] button;
+	private Player player;
 
-	public MainController(){
+	public MainController(Player player1){
+		player = player1;
 		createMap("map");
 		mainView = new MainView();
 		mainView.updateMap(button);
@@ -31,7 +33,7 @@ public class MainController{
 				switch (x) {
 				case 1:  col = Color.WHITE;
 				break;
-				case 2:	col = Color.BLACK;
+				case 2:	col = Color.YELLOW;
 				break;
 				case 3: col = Color.RED;
 				break;
@@ -40,11 +42,18 @@ public class MainController{
 				case 5: col = Color.GREEN;
 				break;
 				}
-				button[i][j] = new JButton("x " + i + " " + j);
-				button[i][j].setBackground(col);
-				System.out.println(x);
-				button[i][j].setVisible(true);
-				//System.out.println(button[i][j].getText());
+				if(i == player.getPosition().getX() && j  == player.getPosition().getY()){
+					button[i][j] = new JButton("x " + i + " " + j);
+					button[i][j].setBackground(Color.BLACK);
+					System.out.println(x);
+					button[i][j].setVisible(true);
+				}else{
+					button[i][j] = new JButton("x " + i + " " + j);
+					button[i][j].setBackground(col);
+					System.out.println(x);
+					button[i][j].setVisible(true);
+					//System.out.println(button[i][j].getText());
+				}
 			}
 
 		}

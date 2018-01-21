@@ -10,9 +10,9 @@ public class Model {
 	private Player player;
 	
 	public Model(){
-		
-		mainController = new MainController();
 		player = new Player();
+		mainController = new MainController(player);
+		
 	}
 	
 	public MainController getMainController(){
