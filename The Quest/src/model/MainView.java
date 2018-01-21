@@ -38,7 +38,7 @@ public class MainView {
 		
 		map = new JPanel();
 		map.setPreferredSize(new Dimension((frame.getWidth()/4)*3, frame.getHeight()));
-		map.setBorder(BorderFactory.createLoweredBevelBorder());
+		//map.setBorder(BorderFactory.createLoweredBevelBorder());
 		map.setVisible(true);
 		map.setLayout(new GridLayout(25,25));
 		
@@ -52,10 +52,11 @@ public class MainView {
 	}
 	
 	public void updateMap(JButton[][] button){
+		getMap().removeAll();
 		for(int i = 0; i<25; i++){
 			for(int j=0; j<25; j++){
-				map.add(button[i][j]);
-				System.out.println(button[i][j].getText() + "Sista");
+				getMap().add(button[i][j]);
+				//System.out.println(button[i][j].getText() + "Sista");
 			}
 		}
 	}
