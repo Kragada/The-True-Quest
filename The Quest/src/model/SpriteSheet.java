@@ -1,7 +1,6 @@
 package model;
 
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 
 public class SpriteSheet {
 	
