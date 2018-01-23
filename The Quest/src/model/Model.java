@@ -1,7 +1,7 @@
 package model;
 
-import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.SlickException;
+//import org.newdawn.slick.AppGameContainer;
+//import org.newdawn.slick.SlickException;
 
 public class Model {
 	
