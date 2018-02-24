@@ -1,10 +1,12 @@
 package model;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 
-public class MainController{
+public class MainController implements KeyListener{
 
 	private MainView mainView;
 	private JButton[][] button;
@@ -14,6 +16,7 @@ public class MainController{
 		player = player1;
 		createMap("map");
 		mainView = new MainView();
+		mainView.getFrame().addKeyListener(this);
 		mainView.updateMap(button);
 		mainView.getMap().revalidate();
 		//mainView.repaint();
@@ -57,6 +60,34 @@ public class MainController{
 			}
 
 		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("HELLO!");
+		int i = e.getKeyCode();
+		System.out.println(i);
+		if(i == 10){
+			if(mainView.getFrame().isVisible()){
+				mainView.getFrame().setVisible(false);
+			}else if(!mainView.getFrame().isVisible()){
+				mainView.getFrame().setVisible(true);
+			} //up = 38, vänster = 37, ner = 40 och höger = 39
+		}
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
