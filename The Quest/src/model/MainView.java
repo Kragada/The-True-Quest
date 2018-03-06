@@ -9,7 +9,9 @@ import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
 
@@ -17,6 +19,7 @@ public class MainView {
 	
 	private JFrame frame;
 	private JPanel map, stats;
+	private JTextArea statsArea;
 	
 	public MainView(){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -30,11 +33,20 @@ public class MainView {
 		frame.setLayout(new FlowLayout(FlowLayout.LEFT, 0,0));
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
+		statsArea = new JTextArea();
+		statsArea.setForeground(Color.WHITE);
+		statsArea.setBackground(Color.BLACK);
+		statsArea.setVisible(true);
+		statsArea.setEditable(false);
+		
 		stats = new JPanel();
+		stats.setLayout(new GridLayout(2,1));
 		stats.setPreferredSize(new Dimension((frame.getWidth()/4)-(int)(frame.getWidth()*0.01), frame.getHeight()));
 		//stats.setBorder(BorderFactory.createLoweredBevelBorder());
-		stats.setBackground(Color.BLACK);
+		stats.setBackground(Color.WHITE);
 		stats.setVisible(true);
+		stats.add(statsArea);
+		stats.add(new JLabel("HELLO2"));
 		
 		map = new JPanel();
 		map.setPreferredSize(new Dimension((frame.getWidth()/4)*3, frame.getHeight()));
@@ -67,6 +79,10 @@ public class MainView {
 	
 	public JPanel getMap(){
 		return map;
+	}
+	
+	public JTextArea getStatsArea(){
+		return statsArea;
 	}
 
 }

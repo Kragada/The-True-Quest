@@ -11,6 +11,7 @@ public class MainController implements KeyListener{
 	private MainView mainView;
 	private JButton[][] button;
 	private Player player;
+	private String stats;
 
 	public MainController(Player player1){
 		player = player1;
@@ -19,6 +20,17 @@ public class MainController implements KeyListener{
 		mainView.getFrame().addKeyListener(this);
 		mainView.updateMap(button);
 		mainView.getMap().revalidate();
+		
+		player.setName("Bobby the Unwilling");
+		player.setCurrentHealth(10);
+		player.setMaxHealth(10);
+		player.setCurrentMana(5);
+		player.setMaxMana(5);
+		
+		stats = "Name: " + player.getName() + "\n" + "Health: " + player.getCurrentHealth()
+		+ "/" + player.getMaxHealth() + "\n" + "Mana: " + player.getCurrentMana() + "/" + player.getMaxMana();
+		
+		mainView.getStatsArea().setText(stats);
 		//mainView.repaint();
 	}
 
