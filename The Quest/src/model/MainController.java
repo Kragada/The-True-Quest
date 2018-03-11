@@ -7,6 +7,9 @@ import java.awt.event.KeyListener;
 import javax.swing.JButton;
 
 public class MainController implements KeyListener{
+	
+	//This is the color that we will use as filler sprite sheet. It will be made Transparent so do not use it!!!!!!!
+	public static int alpha = 0xFFFF00DC;
 
 	private MainView mainView;
 	private JButton[][] button;

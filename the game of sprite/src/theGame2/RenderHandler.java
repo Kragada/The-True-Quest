@@ -1,22 +1,16 @@
-package model;
-
-
-
-
+package theGame2;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 
-import model.Rectangle;
 
-public class RenderHandeler {
-
-
+public class RenderHandler 
+{
 	private BufferedImage view;
 	private Rectangle camera;
 	private int[] pixels;
 
-	public RenderHandeler(int width, int height) 
+	public RenderHandler(int width, int height) 
 	{
 		//Create a BufferedImage that will represent our view.
 		view = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -45,13 +39,13 @@ public class RenderHandeler {
 		renderArray(sprite.getPixels(), sprite.getWidth(), sprite.getHeight(), xPosition, yPosition, xZoom, yZoom);
 	}
 
-	public void renderRectangle(Rectangle rectangle, int xZoom, int yZoom)
+	/*public void renderRectangle(Rectangle rectangle, int xZoom, int yZoom)
 	{
 		int[] rectanglePixels = rectangle.getPixels();
 		if(rectanglePixels != null)
 			renderArray(rectanglePixels, rectangle.w, rectangle.h, rectangle.x, rectangle.y, xZoom, yZoom);	
 	}
-
+*/
 	public void renderArray(int[] renderPixels, int renderWidth, int renderHeight, int xPosition, int yPosition, int xZoom, int yZoom) 
 	{
 		for(int y = 0; y < renderHeight; y++)
@@ -66,7 +60,7 @@ public class RenderHandeler {
 		if(x >= camera.x && y >= camera.y && x <= camera.x + camera.w && y <= camera.y + camera.h)
 		{
 			int pixelIndex = (x - camera.x) + (y - camera.y) * view.getWidth();
-			if(pixels.length > pixelIndex && pixel != MainController.alpha)
+			if(pixels.length > pixelIndex && pixel != Game.alpha)
 				pixels[pixelIndex] = pixel;
 		}
 	}
